@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Dashboard</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 20px 0;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cyber Dashboard</h1>
+  <div class="dashboard">
+    <div class="card">
+      <h2>System Status</h2>
+      <p>All systems operational.</p>
+    </div>
+    <div class="card">
+      <h2>Network Traffic</h2>
+      <p>Incoming: 1.2 Gbps<br>Outgoing: 0.8 Gbps</p>
+    </div>
+    <div class="card">
+      <h2>Security Alerts</h2>
+      <p>No active threats detected.</p>
+    </div>
+    <div class="card">
+      <h2>Server Uptime</h2>
+      <p>99.9% uptime over 30 days.</p>
+    </div>
+  </div>
+</body>
+</html>
