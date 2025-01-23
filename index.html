@@ -6,9 +6,9 @@
   <title>Cyber Dashboard</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #00ff00;
-      font-family: 'Courier New', Courier, monospace;
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
     }
@@ -20,45 +20,108 @@
     }
     .card {
       background-color: #1a1a1a;
-      border: 1px solid #00ff00;
+      border: 1px solid #333333;
       border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
     h1 {
       text-align: center;
       font-size: 2.5rem;
       margin: 20px 0;
+      color: #ffffff;
     }
     h2 {
       font-size: 1.5rem;
       margin-bottom: 10px;
+      color: #ffffff;
     }
     p {
       font-size: 1rem;
       line-height: 1.5;
+      color: #cccccc;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+    }
+    .status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .status-indicator.green {
+      background-color: #00ff00;
+    }
+    .status-indicator.red {
+      background-color: #ff0000;
+    }
+    .vulnerability-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .vulnerability-list li {
+      padding: 5px 0;
+      border-bottom: 1px solid #333333;
+    }
+    .vulnerability-list li:last-child {
+      border-bottom: none;
     }
   </style>
 </head>
 <body>
   <h1>Cyber Dashboard</h1>
   <div class="dashboard">
+    <!-- System Status Card -->
     <div class="card">
       <h2>System Status</h2>
-      <p>All systems operational.</p>
+      <div class="status">
+        <div class="status-indicator green"></div>
+        <p>All systems operational.</p>
+      </div>
     </div>
+
+    <!-- Network Traffic Card -->
     <div class="card">
       <h2>Network Traffic</h2>
       <p>Incoming: 1.2 Gbps<br>Outgoing: 0.8 Gbps</p>
     </div>
+
+    <!-- Security Alerts Card -->
     <div class="card">
       <h2>Security Alerts</h2>
-      <p>No active threats detected.</p>
+      <div class="status">
+        <div class="status-indicator red"></div>
+        <p>1 active threat detected.</p>
+      </div>
     </div>
+
+    <!-- Vulnerability Data Card -->
     <div class="card">
-      <h2>Server Uptime</h2>
-      <p>99.9% uptime over 30 days.</p>
+      <h2>Vulnerability Data</h2>
+      <ul class="vulnerability-list">
+        <li>CVE-2023-1234: Critical</li>
+        <li>CVE-2023-5678: High</li>
+        <li>CVE-2023-9101: Medium</li>
+      </ul>
     </div>
   </div>
+
+  <script>
+    // Example: Dynamic data updates (placeholder for real-time data)
+    setInterval(() => {
+      const trafficIn = (Math.random() * 2).toFixed(2);
+      const trafficOut = (Math.random() * 1.5).toFixed(2);
+      document.querySelector('.card:nth-child(2) p').innerHTML = `
+        Incoming: ${trafficIn} Gbps<br>Outgoing: ${trafficOut} Gbps
+      `;
+    }, 3000); // Update every 3 seconds
+  </script>
 </body>
 </html>
